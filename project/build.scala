@@ -55,7 +55,7 @@ object build {
   val json4sSettings = mavenCentralFrouFrou ++ Seq(
     organization := "org.json4s",
     scalaVersion := "2.12.2",
-    crossScalaVersions := Seq("2.10.6", "2.11.11", "2.12.2"),
+    crossScalaVersions := Seq("2.12.17", "2.12.18"),
     scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature", "-language:existentials", "-language:implicitConversions", "-language:higherKinds", "-language:postfixOps", "-Xfuture"),
     scalacOptions ++= PartialFunction.condOpt(CrossVersion.partialVersion(scalaVersion.value)) {
       case Some((2, 10)) => "-optimize"
@@ -73,8 +73,8 @@ object build {
           Nil
       }
     },
-    version := "3.5.2",
-    javacOptions ++= Seq("-target", "1.6", "-source", "1.6"),
+    version := "3.5.2-ccap",
+    javacOptions ++= Seq("-target", "1.8", "-source", "1.8"),
     javaVersionPrefix in javaVersionCheck := Some{
       CrossVersion.partialVersion(scalaVersion.value) match {
         case Some((2, scalaMajor)) if scalaMajor <= 11 => "1.7"
